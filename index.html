@@ -1,197 +1,56 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inscriptions Padel 🎾</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscriptions Padel</title>
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap');
-
-    :root {
-      --green-pad: #2a9d8f;
-      --dark-green: #264653;
-      --orange: #e76f51;
-      --light-bg: #f0f4f3;
-      --white: #fff;
-      --shadow: rgba(0,0,0,0.1);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Roboto', sans-serif;
-      background: var(--light-bg);
-      margin: 0;
-      padding: 1rem 1rem 3rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      color: var(--dark-green);
-      user-select: none;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1 {
-      font-family: 'Montserrat', sans-serif;
-      text-align: center;
-      margin-bottom: 0.5rem;
-      color: var(--green-pad);
-      text-shadow: 1px 1px 3px var(--shadow);
-    }
-
-    h2 {
-      text-align: center;
-      color: var(--orange);
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      font-weight: 500;
-    }
-
-    #playerName {
-      display: block;
-      width: 100%;
-      padding: 0.75rem 1rem;
-      font-size: 1.2rem;
-      border-radius: 50px;
-      border: 2px solid var(--green-pad);
-      outline-offset: 4px;
-      margin-bottom: 1.5rem;
-      transition: border-color 0.3s ease;
-      font-weight: 500;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    #playerName:focus {
-      border-color: var(--orange);
-      outline: none;
-      box-shadow: 0 0 8px var(--orange);
-    }
-
-    #schedule {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
-    }
-
-    .session {
-      background: var(--white);
-      padding: 1rem 1.25rem;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px var(--shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      user-select: none;
-      border: 3px solid transparent;
-    }
-    .session:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(39,174,96,0.25);
-      border-color: var(--green-pad);
-    }
-
-    .session h3 {
-      margin: 0 0 0.8rem;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--dark-green);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .session h3::before {
-      content: "🎾";
-      font-size: 1.3rem;
-    }
-
-    label {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-weight: 500;
-      font-size: 1rem;
-      user-select: none;
-      cursor: pointer;
-      color: var(--green-pad);
-      transition: color 0.3s ease;
-    }
-    label:hover {
-      color: var(--orange);
-    }
-
-    input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-      accent-color: var(--green-pad);
-      transition: accent-color 0.3s ease;
-    }
-    input[type="checkbox"]:hover {
-      accent-color: var(--orange);
-    }
-
-    .players {
-      margin-top: 0.8rem;
-      font-style: italic;
-      font-size: 0.9rem;
-      color: #555;
-      min-height: 2.4em;
-      user-select: text;
-    }
-
-    button {
-      margin-top: 2rem;
-      width: 100%;
+      font-family: sans-serif;
       padding: 1rem;
-      font-size: 1.25rem;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      background: var(--green-pad);
-      color: var(--white);
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 6px 14px rgba(42,157,143,0.6);
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
+      max-width: 600px;
+      margin: auto;
+      background: #f9f9f9;
     }
-    button:hover:not(:disabled) {
-      background: var(--orange);
-      box-shadow: 0 8px 20px rgba(231,111,81,0.8);
+    h1 { text-align: center; }
+    .session {
+      background: #fff;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .session h3 {
+      margin-top: 0;
+    }
+    .players {
+      margin-top: 0.5rem;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
     }
     button:disabled {
-      background: #bbb;
+      background: #ccc;
       cursor: not-allowed;
-      box-shadow: none;
-      color: #666;
-    }
-
-    @media (max-width: 480px) {
-      #playerName {
-        font-size: 1rem;
-      }
-      .session h3 {
-        font-size: 1.1rem;
-      }
-      button {
-        font-size: 1.1rem;
-        padding: 0.9rem;
-      }
     }
   </style>
 </head>
 <body>
   <h1>Inscriptions Padel</h1>
-  <h2>Réserve ton créneau et rejoins la partie !</h2>
-  <input type="text" id="playerName" placeholder="Ton prénom ici..." autocomplete="off" />
-  <div id="schedule" aria-live="polite" aria-atomic="true"></div>
-  <button id="submitBtn" onclick="submitInscriptions()">S'inscrire</button>
+  <input type="text" id="playerName" placeholder="Votre prénom" />
+  <div id="schedule"></div>
+  <button onclick="submitInscriptions()">S'inscrire</button>
 
   <script>
     const sessions = {
@@ -205,10 +64,8 @@
 
     const inscriptions = {};
 
-    // Création dynamique des créneaux
     function createSchedule() {
       const container = document.getElementById("schedule");
-      container.innerHTML = '';
       for (const [day, times] of Object.entries(sessions)) {
         times.forEach(time => {
           const key = `${day} ${time}`;
@@ -217,93 +74,57 @@
           div.className = "session";
           div.innerHTML = `
             <h3>${key}</h3>
-            <label for="${key}">
-              <input type="checkbox" id="${key}" name="sessions" aria-describedby="players-${key.replace(/\s/g, '-')}" />
-              Je m'inscris
-            </label>
-            <div class="players" id="players-${key.replace(/\s/g, '-')}" aria-live="polite" aria-atomic="true">Aucun inscrit</div>
+            <label><input type="checkbox" id="${key}" /> S'inscrire</label>
+            <div class="players" id="players-${key.replace(/\s/g, '-')}">Aucun inscrit</div>
           `;
           container.appendChild(div);
         });
       }
     }
 
-    // Met à jour la liste des joueurs inscrits pour un créneau donné
-    function updatePlayersList(key) {
-      const el = document.getElementById("players-" + key.replace(/\s/g, '-'));
-      const players = inscriptions[key];
-      if (players.length === 0) {
-        el.textContent = "Aucun inscrit";
-        el.style.fontStyle = "italic";
-        el.style.color = "#555";
-      } else {
-        el.style.fontStyle = "normal";
-        el.style.color = "var(--dark-green)";
-        let text = players.join(", ");
-        if (players.length > 4) {
-          text += `  (+${players.length - 4} en liste d'attente)`;
-          el.style.fontWeight = "700";
-          el.style.color = "var(--orange)";
-        } else {
-          el.style.fontWeight = "400";
-        }
-        el.textContent = text;
-      }
-    }
-
-    // Envoi d'email quand plus de 4 inscrits sur un créneau
-    function sendEmailNotification(keys) {
-      emailjs.init("DnZcVIriziObzEXZE");
-      emailjs.send("service_7ls3up6", "template_xx7wwgg", {
-        message: `⚠️ Plus de 4 inscrits pour les créneaux suivants :\n${keys.join('\n')}`,
-        to_email: "pfeuffer.florian@gmail.com"
-      })
-      .then(() => console.log("Email envoyé"))
-      .catch(err => console.error("Erreur email:", err));
-    }
-
-    // Gestion du clic sur le bouton inscription
     function submitInscriptions() {
-      const nameInput = document.getElementById("playerName");
-      const name = nameInput.value.trim();
+      const name = document.getElementById("playerName").value.trim();
       if (!name) {
-        alert("Merci d'indiquer ton prénom !");
-        nameInput.focus();
+        alert("Merci d'indiquer votre prénom.");
         return;
       }
-
       let alertSessions = [];
-
-      let anySelected = false;
-      const allCheckboxes = document.querySelectorAll('input[name="sessions"]');
-      allCheckboxes.forEach(checkbox => {
-        const key = checkbox.id;
-        if (checkbox.checked) {
-          anySelected = true;
-          if (!inscriptions[key].includes(name)) {
+      for (const [day, times] of Object.entries(sessions)) {
+        times.forEach(time => {
+          const key = `${day} ${time}`;
+          const checkbox = document.getElementById(key);
+          if (checkbox.checked && !inscriptions[key].includes(name)) {
             inscriptions[key].push(name);
             updatePlayersList(key);
             if (inscriptions[key].length === 5) {
               alertSessions.push(key);
             }
           }
-          // Désactive la checkbox après inscription pour éviter double inscription sur même créneau
-          checkbox.checked = false;
-        }
-      });
-
-      if (!anySelected) {
-        alert("Merci de sélectionner au moins un créneau !");
-        return;
+        });
       }
-
       if (alertSessions.length > 0) {
         sendEmailNotification(alertSessions);
       }
+      alert("Inscription enregistrée !");
+    }
 
-      alert(`Merci ${name} ! Ton inscription a bien été prise en compte.`);
-      nameInput.value = "";
-      nameInput.focus();
+    function updatePlayersList(key) {
+      const el = document.getElementById("players-" + key.replace(/\s/g, '-'));
+      const players = inscriptions[key];
+      el.innerHTML = players.length === 0 ? "Aucun inscrit" : players.join(", ");
+      if (players.length > 4) {
+        el.innerHTML += ` <strong>(+${players.length - 4} en liste d'attente)</strong>`;
+      }
+    }
+
+    function sendEmailNotification(keys) {
+      emailjs.init("DnZcVIriziObzEXZE");
+      emailjs.send("service_7ls3up6", "template_xx7wwgg", {
+        message: `Plus de 4 inscrits pour les créneaux suivants :\n${keys.join('\n')}`,
+        to_email: "pfeuffer.florian@gmail.com@example.com"
+      })
+      .then(() => console.log("Email envoyé"))
+      .catch(err => console.error("Erreur email:", err));
     }
 
     createSchedule();
